@@ -1,0 +1,52 @@
+<div class="max-w-3xl mx-auto p-6 bg-white shadow rounded">
+
+  <h2 class="text-2xl font-bold mb-4">Page Management</h2>
+
+  <!-- Create Page -->
+  <div class="border p-4 rounded mb-6">
+    <h3 class="font-semibold mb-3">Create Page</h3>
+
+    <div class="grid grid-cols-2 gap-4">
+      <input
+        type="text"
+        placeholder="Page Name"
+        [(ngModel)]="page.name"
+        class="border p-2 rounded"
+      />
+
+      <select
+        [(ngModel)]="page.category"
+        class="border p-2 rounded"
+      >
+        <option value="">Select Category</option>
+        <option value="Business">Business</option>
+        <option value="Community">Community</option>
+        <option value="Education">Education</option>
+      </select>
+    </div>
+
+    <button
+      (click)="createPage()"
+      class="mt-4 bg-blue-600 text-white px-4 py-2 rounded"
+    >
+      Create Page
+    </button>
+  </div>
+
+  <!-- Page List -->
+  <table class="w-full border">
+    <thead class="bg-gray-100">
+      <tr>
+        <th class="border p-2">Page Name</th>
+        <th class="border p-2">Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of pages">
+        <td class="border p-2">{{ p.name }}</td>
+        <td class="border p-2">{{ p.category }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
